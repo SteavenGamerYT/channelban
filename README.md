@@ -1,23 +1,36 @@
 # ChannelBan
 
-This bot watches a channel and bans users if they post in it (with configurable role exclusions).
+This Discord bot watches specific channels and **automatically bans any user who posts in them**, unless they have one of the ignored roles.  
+All configuration is done through a simple `.env` file.
 
-This bot requires the **Server Members** and **Message Content** intents.
+---
 
-In guilds it requires **View Channels**, **Read Message History**, **Moderate Members**, and **Ban Members**.
+## ⚙️ Features
+- Watches specific channels (configurable in `.env`)
+- Bans users who post there
+- Optionally ignores users with certain roles
+- Sends error reports to a webhook (optional)
+- Deletes 7 days of the banned user’s messages
+- Written in **Node.js** using [`discord.js`](https://discord.js.org/)
 
-To run:
+---
 
-```
-cd channelbans/
+## 🔑 Required Discord Intents
+Make sure the bot has the following:
+- **Server Members Intent**
+- **Message Content Intent**
+
+In the guild, it also needs:
+- View Channels  
+- Read Message History  
+- Moderate Members  
+- Ban Members  
+
+---
+
+## 🚀 Setup
+
+```bash
+git clone https://github.com/yourusername/channelban.git
+cd channelban/
 cp .env.example .env
-```
-
-edit `.env` with all the values specified in the comments.
-
-`pipenv` is recommended.
-
-```
-pipenv install
-pipenv run bot
-```
